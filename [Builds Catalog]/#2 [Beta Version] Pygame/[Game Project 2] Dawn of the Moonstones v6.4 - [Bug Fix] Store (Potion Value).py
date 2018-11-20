@@ -439,7 +439,7 @@ class Player:
         self.defense = 3
         self.resistance = 2
         self.experience = 0
-        self.gold = 500
+        self.gold = 50
         self.potion = 2
         self.weap = ["Bronze Lance"]
         self.curweap = "Bronze Lance"
