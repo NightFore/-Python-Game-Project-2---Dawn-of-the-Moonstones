@@ -439,7 +439,7 @@ class Player:
         self.defense = 3
         self.resistance = 2
         self.experience = 0
-        self.gold = 50
+        self.gold = 500
         self.potion = 2
         self.weap = ["Bronze Lance"]
         self.curweap = "Bronze Lance"
@@ -1157,6 +1157,7 @@ def Run():
 def win():
     if GameStateIG.Game_Event[3] == False:
         Game_State_Reset("Fight")
+        PlayerIG.experience += ennemy.experiencegain
         GameStateIG.Game_Event[3] = True
 
     if GameStateIG.Text_Order == 1:
@@ -1166,18 +1167,10 @@ def win():
     if GameStateIG.Text_Order == 2:
         GameStateIG.Text_Line[2] ="You gained %i Experience!" % ennemy.experiencegain
         GameStateIG.Text_Line[3] = "->"
-        
-        if GameStateIG.Game_Event[4] == False:
-            PlayerIG.experience += ennemy.experiencegain
-            GameStateIG.Game_Event[4] = True
 
     if GameStateIG.Text_Order == 3:
         GameStateIG.Text_Line[3] ="You found %i Gold!" % ennemy.goldgain
         GameStateIG.Text_Line[4] = "->"
-        
-        if GameStateIG.Game_Event[5] == False:
-            PlayerIG.gold += ennemy.goldgain
-            GameStateIG.Game_Event[5] = True
 
     if GameStateIG.Text_Order == 4:
         ennemy.health = ennemy.maxhealth
